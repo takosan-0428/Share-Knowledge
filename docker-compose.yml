@@ -1,0 +1,58 @@
+version: '3.9'
+
+services:
+    web:
+        image: psi:web
+        container_name: psi_web
+        ports:
+            - "8850:80"
+        volumes:
+            - ./src:/var/www/app
+            - ./Docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+            - ./Docker/nginx/conf_dev:/etc/nginx/conf
+        depends_on:
+            - app
+        networks:
+            - net
+    
+    app:
+        image: psi:app
+        container_name: psi_app
+        volumes:
+            - ./src:/var/www/app
+        stdin_open: true
+        tty: true
+        depends_on:
+            db:
+                condition: service_started
+        ports:
+            - "5173:5173"
+        command: python manage.py runserver 0.0.0.0:8000
+        networks:
+            - net
+    
+    db:
+        image: psi:db
+        container_name: psi_db
+        ports:
+            - "3316:3306"
+        volumes:
+            - data:/var/lib/mysql
+        networks:
+            - net
+    
+    admin:
+        image: psi:admin
+        container_name: psi_admin
+        ports:
+            - "8860:80"
+        networks:
+            - net
+
+networks:
+    net:
+        driver: bridge
+
+volumes:
+    data:
+        driver: local

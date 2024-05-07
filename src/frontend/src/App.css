@@ -1,0 +1,67 @@
+.header {
+    background-color: #bbb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 20px;
+    
+    border-top: 1px solid #000;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+
+    border-bottom: 3px solid #111;
+  }
+  
+  .header h1 {
+    margin: 0;
+  }
+  
+  .header ul {
+    display: flex; /* リスト項目を横並びにする */
+    list-style-type: none;
+    padding: 0;/*ユーザー エージェントのスタイル シートを無効*/
+    margin: 0;/*ユーザー エージェントのスタイル シートを無効*/
+  }
+  
+  .header ul li {
+    margin-right: 20px; /* リスト項目の間隔を調整 */
+    font-size: 130%;
+  }
+  
+  .header ul li:last-child {
+    margin-right: 0;/*ユーザー エージェントのスタイル シートを無効*/
+  }
+  
+.main_div{
+    padding: 3px 10% 15% 10%;
+    background-color: #bc9249;
+}
+
+.sub_div{
+  padding: 3% 10% 15% 10%;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+  
+  border-bottom: 30px solid #e1e1e1;
+  
+  background-color: #fff;
+}
+
+h2{
+  margin: 0;/*ユーザー エージェントのスタイル シートを無効*/
+  margin-bottom: 2%;
+}
+
+h3{
+  border-bottom: 1px solid #555;
+}
+
+.Box_line{
+  border-bottom: 1px solid #555;
+}
+
+.index_ul{
+  padding-left: 10%;
+  border-right: 1px solid #eee;
+}
+
